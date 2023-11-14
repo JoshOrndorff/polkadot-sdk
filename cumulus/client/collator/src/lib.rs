@@ -100,6 +100,13 @@ where
 		};
 
 		let last_head_hash = last_head.hash();
+		tracing::trace!(
+			target: LOG_TARGET,
+			last_head = ?last_head,
+			"About the check the last head. Did the question mark syntax make it log that value??",
+		);
+
+		// Here is where we call the checks that fail.
 		if !self.service.check_block_status(last_head_hash, &last_head) {
 			return None
 		}
