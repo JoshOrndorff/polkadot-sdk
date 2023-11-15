@@ -22,7 +22,7 @@
 //!
 //! For more information about AuRa, the Substrate crate should be checked.
 
-use codec::{Codec, Decode};
+use codec::{Codec, Decode, Encode};
 use cumulus_client_collator::service::ServiceInterface as CollatorServiceInterface;
 use cumulus_client_consensus_common::ParachainBlockImportMarker;
 use cumulus_client_consensus_proposer::ProposerInterface;
@@ -158,6 +158,7 @@ where
 
 			println!("🤵🤵🤵🤵🤵🤵🤵 In Aura about to call check block status");
 			println!("🤵🤵🤵🤵🤵🤵🤵 Last header is {:?}", parent_header);
+			println!("🤵🤵🤵🤵🤵🤵🤵 Last header Encoded is {:?}", parent_header.encode());
 			println!("🤵🤵🤵🤵🤵🤵🤵 and its hash is {:?}", parent_header.hash());
 			if !collator.collator_service().check_block_status(parent_hash, &parent_header) {
 				println!("🤵🤵🤵🤵🤵🤵🤵 In Aura continuing.");
